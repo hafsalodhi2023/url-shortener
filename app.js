@@ -16,13 +16,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware for error handling should be added after all other middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: "https://se-short.vercel.app",
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
