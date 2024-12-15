@@ -24,7 +24,7 @@ module.exports = async function (req, res) {
     return res.status(201).json({ id: shortid });
   } catch (err) {
     // Log the error and respond with a 500 status code
-    console.error("Error in create controller:", err.message);
+    console.log("Error in create controller:", err.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
