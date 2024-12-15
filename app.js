@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Set views directory and view engine
-// app.set("views", path.join(__dirname, "views")); // Changed to "./views" if your views are in the same directory level
+app.set("views", path.join(__dirname, "views")); // Changed to "./views" if your views are in the same directory level
 app.set("view engine", "ejs");
 
 // Routes

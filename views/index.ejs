@@ -178,7 +178,7 @@
       e.preventDefault();
       const url = document.querySelector("#url").value;
 
-      const response = await fetch("http://localhost:8000/url/create", {
+      const response = await fetch("https://se-short.vercel.app/url/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -189,7 +189,7 @@
       });
       const data = await response.json();
       shortenedUrlContainer.classList.remove("hidden");
-      shortenedUrlInput.value = "http://localhost:8000/" + data.id;
+      shortenedUrlInput.value = "https://se-short.vercel.app/" + data.id;
     });
 
     copyButton.addEventListener("click", () => {
