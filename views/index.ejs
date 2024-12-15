@@ -207,7 +207,7 @@
       e.preventDefault();
       const url = document.querySelector("#url").value;
 
-      const response = await fetch("https://se-short.vercel.app/url/create", {
+      const response = await fetch("/url/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
