@@ -182,25 +182,53 @@
     const shortenedUrlInput = document.querySelector("#shortened-url");
     const copyButton = document.querySelector("#copy");
 
+    // form.addEventListener("submit", async (e) => {
+    //   e.preventDefault();
+    //   try {
+    //     const url = document.querySelector("#url").value;
+
+    //     const response = await fetch("https://se-short.vercel.app/url/create", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({
+    //         url,
+    //       }),
+    //     });
+    //     const data = await response.json();
+    //     shortenedUrlContainer.classList.remove("hidden");
+    //     shortenedUrlInput.value = "https://se-short.vercel.app/" + data.id;
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // });
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      try {
-        const url = document.querySelector("#url").value;
+      const url = document.querySelector("#url").value;
 
-        const response = await fetch("https://se-short.vercel.app/url/create", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            url,
-          }),
-        });
-        const data = await response.json();
+      const response = await fetch("https://se-short.vercel.app/url/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          url,
+        }),
+      });
+
+      // Log the raw response to inspect the content
+      const responseText = await response.text();
+      console.log("Response text:", responseText);
+
+      try {
+        // Try to parse the JSON response
+        const data = JSON.parse(responseText);
         shortenedUrlContainer.classList.remove("hidden");
         shortenedUrlInput.value = "https://se-short.vercel.app/" + data.id;
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        // Handle error in parsing JSON
+        console.error("Failed to parse JSON:", err.message);
       }
     });
 
