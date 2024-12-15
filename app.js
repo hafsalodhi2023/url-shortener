@@ -13,6 +13,11 @@ const urlRoute = require("./routes/url");
 
 const PORT = process.env.PORT || 3000;
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Internal Server Error!");
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
