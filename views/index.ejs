@@ -16,14 +16,22 @@
       sizes="96x96"
       href="https://se-short.vercel.app/favicon/favicon-96x96.png"
     />
-    <link rel="icon" type="image/svg+xml" href="https://se-short.vercel.app/favicon/favicon.svg" />
-    <link rel="shortcut icon" href=https://se-short.vercel.app/favicon/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://se-short.vercel.app/favicon/favicon.svg"
+    />
+    <link rel="shortcut icon"
+    href=https://se-short.vercel.app/favicon/favicon.ico" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="https://se-short.vercel.app/favicon/apple-touch-icon.png"
     />
-    <link rel="manifest" href="https://se-short.vercel.app/favicon/site.webmanifest" />
+    <link
+      rel="manifest"
+      href="https://se-short.vercel.app/favicon/site.webmanifest"
+    />
     <style>
       * {
         font-family: "Poppins", serif;
@@ -176,20 +184,24 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const url = document.querySelector("#url").value;
+      try {
+        const url = document.querySelector("#url").value;
 
-      const response = await fetch("https://se-short.vercel.app/url/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          url,
-        }),
-      });
-      const data = await response.json();
-      shortenedUrlContainer.classList.remove("hidden");
-      shortenedUrlInput.value = "https://se-short.vercel.app/" + data.id;
+        const response = await fetch("https://se-short.vercel.app/url/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            url,
+          }),
+        });
+        const data = await response.json();
+        shortenedUrlContainer.classList.remove("hidden");
+        shortenedUrlInput.value = "https://se-short.vercel.app/" + data.id;
+      } catch (error) {
+        console.log(error);
+      }
     });
 
     copyButton.addEventListener("click", () => {
