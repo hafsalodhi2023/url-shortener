@@ -14,23 +14,23 @@
       rel="icon"
       type="image/png"
       sizes="96x96"
-      href="https://se-short.vercel.app/favicon/favicon-96x96.png?v=1"
+      href="https://sk-ed.vercel.app/favicon/favicon-96x96.png?v=1"
     />
     <link
       rel="icon"
       type="image/svg+xml"
-      href="https://se-short.vercel.app/favicon/favicon.svg?v=1"
+      href="https://sk-ed.vercel.app/favicon/favicon.svg?v=1"
     />
     <link rel="shortcut icon"
-    href=https://se-short.vercel.app/favicon/favicon.ico?v=1" />
+    href=https://sk-ed.vercel.app/favicon/favicon.ico?v=1" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="https://se-short.vercel.app/favicon/apple-touch-icon.png?v=1"
+      href="https://sk-ed.vercel.app/favicon/apple-touch-icon.png?v=1"
     />
     <link
       rel="manifest"
-      href="https://se-short.vercel.app/favicon/site.webmanifest?v=1"
+      href="https://sk-ed.vercel.app/favicon/site.webmanifest?v=1"
     />
     <style>
       * {
@@ -187,7 +187,7 @@
       try {
         const url = document.querySelector("#url").value;
 
-        const response = await fetch("https://se-short.vercel.app/url/create", {
+        const response = await fetch("https://sk-ed.vercel.app/url/create", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -198,7 +198,7 @@
         });
         const data = await response.json();
         shortenedUrlContainer.classList.remove("hidden");
-        shortenedUrlInput.value = "https://se-short.vercel.app/" + data.id;
+        shortenedUrlInput.value = "https://sk-ed.vercel.app/" + data.id;
       } catch (error) {
         console.log(error);
       }

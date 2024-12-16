@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://se-short.vercel.app",
+    origin: "https://sk-ed.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   })
